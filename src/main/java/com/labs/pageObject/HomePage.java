@@ -1,13 +1,10 @@
 package com.labs.pageObject;
 
-import java.io.IOException;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.labs.Utilities.Util;
-import com.labs.base.BaseLabsClass;
 
 public class HomePage extends Util{
 	@FindBy(xpath = "(//a[text()='Laptops & Notebooks'])[1]")
@@ -35,9 +32,9 @@ public class HomePage extends Util{
 	public void selectLaptop() throws InterruptedException
 	{
 		Util.mouseHover(laptopNotes);
-		Util.hardWait(3);
+		Util.hardWait(2);
 		Util.clickOnElement(showAllLaptops, 2);
-		Util.hardWait(3);
+		Util.hardWait(2);
 		Util.waitTovisibility(sortByDropdown, 5);	
 	}
 	
@@ -46,16 +43,17 @@ public class HomePage extends Util{
 		Util.clickOnElement(sortByDropdown, 2);
 		Util.selectByValue(sortByDropdown, "Model (Z - A)");
 		Util.selectByIndex(showDropDown, 4);
-		Util.hardWait(5);
+		Util.hardWait(2);
 	}
 	
 	public void scrollDown() throws InterruptedException
 	{
 	Util.waitTovisibility(macBookPro, 3);	
 	Util.scrollToElement(macBookPro);
-	Util.hardWait(5);
+	Util.hardWait(2);
 	Util.JSExecuteClick(macBookPro);
 	Util.waitTovisibility(addToCart, 2);
+	
 	
 	}
 }

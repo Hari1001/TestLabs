@@ -42,7 +42,7 @@ public class LoginPage extends Util{  // inheritance
 		Util.sendKeysToElement(passWord, pro.getProperty("password"), 3);
 		Util.clickOnElement(login, 3);
 		Util.waitTovisibility(account, 5);
-		Util.hardWait(5);
+		//Util.hardWait(5);
 	//	Assert.ass
 	}
 	
