@@ -3,6 +3,7 @@ package Automation.TestLabs;
 import org.testng.annotations.Test;
 
 import com.labs.base.BaseLabsClass;
+import com.labs.pageObject.DeliveryDetailsPage;
 import com.labs.pageObject.HomePage;
 import com.labs.pageObject.IndexPage;
 import com.labs.pageObject.LoginPage;
@@ -14,6 +15,7 @@ public class HomeLabsPageTest extends BaseLabsClass{
 	LoginPage login;
 	HomePage home;
 	OpenCartPage open;
+	DeliveryDetailsPage delivery;
 	
 
 	@Test//(dataProvider = "getExcelData")
@@ -23,11 +25,14 @@ public class HomeLabsPageTest extends BaseLabsClass{
 		login = new LoginPage();
 		home = new HomePage();
 		open = new OpenCartPage();
+		delivery = new DeliveryDetailsPage();
 		index.verifyMyAccount();
 		login.verfiyLogin();
 		home.selectLaptop();
 		home.selectSort();
 		home.scrollDown();
 		open.verifyaddToCart();
+		delivery.verifyDeliveryDetails();
 	}
 }
+

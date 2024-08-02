@@ -143,23 +143,24 @@ public class Util extends BaseLabsClass { // Single Level inheritance
 		
 		String parent= driver.getWindowHandle();
 		Set<String> set=driver.getWindowHandles();
-		List<String> li= new ArrayList<String>(set);
+		//List<String> li= new ArrayList<String>(set);
 		Iterator<String> it= set.iterator();
 		
 	//	Set<Integer> s= new HashSet<Integer>()
 		while(it.hasNext())
 		{String childWindow=it.next();
 			
-		String title= driver.switchTo().window(childWindow).getTitle();
+		//String title= driver.switchTo().window(childWindow).getTitle();
 		
 			if(!parent.equalsIgnoreCase(childWindow))
 			{
 				driver.switchTo().window(childWindow);
-				driver.quit();
+				//driver.close();
 			}
 			
 		}
-		driver.switchTo().window(parent);
+		//driver.switchTo().window(parent);
+		
 	
 //		String parent = driver.getWindowHandle();
 //		Set<String> s = driver.getWindowHandles();
