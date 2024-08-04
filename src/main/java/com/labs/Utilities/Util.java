@@ -155,7 +155,7 @@ public class Util extends BaseLabsClass { // Single Level inheritance
 			if(!parent.equalsIgnoreCase(childWindow))
 			{
 				driver.switchTo().window(childWindow);
-				driver.quit();
+				driver.close();
 			}
 			
 		}
