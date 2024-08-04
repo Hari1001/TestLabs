@@ -21,6 +21,9 @@ public class OpenCartPage extends Util { // Multi level Inheritance
 	@FindBy(xpath = "//a[text()='Checkout']")
 	public WebElement checkout;
 
+	
+	//driver.findElement(By.xpath("//strong[normalize-space()='Checkout']").click();
+	
 	public OpenCartPage() {
 		PageFactory.initElements(driver, this);
 	}
@@ -36,6 +39,8 @@ public class OpenCartPage extends Util { // Multi level Inheritance
 //		Util.sendKeysToElement(checkout,Keys.chord(Keys.CONTROL,"T"), 0);
 //		Util.KeySEnter(checkout);
 		Util.hardWait(5);
+		Util.clickOnElement(checkout, 2);
+		
 	}
 
 }
