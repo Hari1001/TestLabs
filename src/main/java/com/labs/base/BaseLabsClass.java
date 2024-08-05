@@ -7,6 +7,7 @@ import java.util.Properties;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
@@ -26,8 +27,8 @@ public class BaseLabsClass {
 	@BeforeTest   // Before TestNG
 	public void launchApp() throws IOException, InterruptedException {
 
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();  // chromeDriver() ;;
+		WebDriverManager.firefoxdriver().setup();
+		driver = new FirefoxDriver();  // chromeDriver() ;;
 		
 		// Maximizing the browser
 		driver.manage().window().maximize();
@@ -57,6 +58,6 @@ public class BaseLabsClass {
 
 	@AfterTest
 	public void tearDown() {
-		driver.quit();	
+		//driver.quit();	
 	}
 }
