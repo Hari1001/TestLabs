@@ -7,6 +7,7 @@ import com.labs.pageObject.HomePage;
 import com.labs.pageObject.IndexPage;
 import com.labs.pageObject.LoginPage;
 import com.labs.pageObject.OpenCartPage;
+import com.labs.pageObject.checkoutPage;
 
 
 public class HomeLabsPageTest extends BaseLabsClass{
@@ -14,6 +15,7 @@ public class HomeLabsPageTest extends BaseLabsClass{
 	LoginPage login;
 	HomePage home;
 	OpenCartPage open;
+	checkoutPage check;
 	
 
 	@Test//(dataProvider = "getExcelData")
@@ -23,11 +25,15 @@ public class HomeLabsPageTest extends BaseLabsClass{
 		login = new LoginPage();
 		home = new HomePage();
 		open = new OpenCartPage();
+		check= new checkoutPage();
 		index.verifyMyAccount();
 		login.verfiyLogin();
 		home.selectLaptop();
 		home.selectSort();
 		home.scrollDown();
-		open.verifyaddToCart();
+		open.verifyCartTable();
+		home.SelectHPLaptop();
+		open.verifyCartTable();
+		check.verifyTableData();
 	}
 }
