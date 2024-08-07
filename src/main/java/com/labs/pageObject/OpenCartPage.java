@@ -37,8 +37,8 @@ public class OpenCartPage extends Util { // Multi level Inheritance
 		
 		Util.KeySEnter(shoppingCart);
 		Util.switchWindow();
-//		Util.scrollToElement(checkout);
-//		Util.waitTovisibility(checkout, 2);
+		Util.scrollToElement(checkout);
+		Util.waitTovisibility(checkout, 2);
 //		
 		Util.hardWait(2);
 	}
@@ -47,6 +47,7 @@ public class OpenCartPage extends Util { // Multi level Inheritance
 		Util.clickOnElement(addToCart, 2);
 		Util.waitTovisibility(shoppingCart, 4);
 		Util.clickOnElement(cartLogo, 2);
+		Util.clickOnElement(checkout, 2);
 		Util.hardWait(2);
 	
 	}

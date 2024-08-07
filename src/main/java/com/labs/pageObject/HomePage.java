@@ -43,7 +43,7 @@ public class HomePage extends Util {
 	public void selectSort() throws InterruptedException {
 		Util.clickOnElement(sortByDropdown, 2);
 		Util.selectByValue(sortByDropdown, "Model (Z - A)");
-		Util.selectByIndex(showDropDown, 4);
+		Util.selectByIndex(showDropDown, 1);
 		Util.hardWait(2);
 	}
 
