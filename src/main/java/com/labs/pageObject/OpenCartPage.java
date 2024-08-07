@@ -1,5 +1,7 @@
 package com.labs.pageObject;
 
+import java.io.IOException;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,7 +22,10 @@ public class OpenCartPage extends Util { // Multi level Inheritance
 
 	@FindBy(xpath = "//a[text()='Checkout']")
 	public WebElement checkout;
-
+	
+	@FindBy(xpath="//span[text()='Shopping Cart']")
+	public WebElement cartLogo;
+	
 	public OpenCartPage() {
 		PageFactory.initElements(driver, this);
 	}
@@ -29,14 +34,21 @@ public class OpenCartPage extends Util { // Multi level Inheritance
 		Util.sendKeysToElement(inputQuantity, "2", 2);
 		Util.clickOnElement(addToCart, 2);
 		Util.waitTovisibility(shoppingCart, 2);
+		
 		Util.KeySEnter(shoppingCart);
 		Util.switchWindow();
 		Util.scrollToElement(checkout);
 		Util.waitTovisibility(checkout, 2);
-//		Util.sendKeysToElement(checkout,Keys.chord(Keys.CONTROL,"T"), 0);
-//		Util.KeySEnter(checkout);
-		Util.clickOnElement(checkout, 2);
-		Util.hardWait(5);
+//		
+		Util.hardWait(2);
 	}
-
+	public void verifyCartTable() {
+		Util.sendKeysToElement(inputQuantity, "2", 2);
+		Util.clickOnElement(addToCart, 2);
+		Util.waitTovisibility(shoppingCart, 4);
+		Util.clickOnElement(cartLogo, 2);
+		Util.clickOnElement(checkout, 2);
+		Util.hardWait(2);
+	
+	}
 }

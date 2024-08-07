@@ -1,14 +1,17 @@
 package com.labs.Utilities;
 
+import java.io.File;
 import java.time.Duration;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -120,7 +123,7 @@ public class Util extends BaseLabsClass { // Single Level inheritance
 	}
 
 	public static void KeySEnter(WebElement element) {
-		
+
 		String selectLinkOpeninNewTab = Keys.chord(Keys.CONTROL, Keys.RETURN);
 		element.sendKeys(selectLinkOpeninNewTab);// act.keyDown(Keys.CONTROL).sendKeys("T").keyUp(Keys.CONTROL).build().perform();
 
@@ -140,6 +143,7 @@ public class Util extends BaseLabsClass { // Single Level inheritance
 //				driver.switchTo().window(parentWindow);
 //			}
 //		}
+<<<<<<< HEAD
 		
 		String parent= driver.getWindowHandle();
 		Set<String> set=driver.getWindowHandles();
@@ -154,14 +158,34 @@ public class Util extends BaseLabsClass { // Single Level inheritance
 		
 			if(!parent.equalsIgnoreCase(childWindow))
 			{
+=======
+
+		String parent = driver.getWindowHandle();
+		Set<String> set = driver.getWindowHandles();
+		List<String> li = new ArrayList<String>(set);
+		Iterator<String> it = set.iterator();
+
+		// Set<Integer> s= new HashSet<Integer>()
+		while (it.hasNext()) {
+			String childWindow = it.next();
+
+			String title = driver.switchTo().window(childWindow).getTitle();
+
+			if (!parent.equalsIgnoreCase(childWindow)) {
+>>>>>>> 8c185a0d10a55232ad158d019ba7b62cd36b1b69
 				driver.switchTo().window(childWindow);
 				//driver.close();
 			}
-			
+
 		}
+<<<<<<< HEAD
 		//driver.switchTo().window(parent);
 		
 	
+=======
+		driver.switchTo().window(parent);
+
+>>>>>>> 8c185a0d10a55232ad158d019ba7b62cd36b1b69
 //		String parent = driver.getWindowHandle();
 //		Set<String> s = driver.getWindowHandles();
 //
@@ -179,5 +203,15 @@ public class Util extends BaseLabsClass { // Single Level inheritance
 //		}
 //		// switch to the parent window
 //		driver.switchTo().window(parent);
+	}
+
+	public static void screenshot(String fileName) {
+		try {
+			File copyfile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+			FileUtils.copyFile(copyfile, new File("D://Testing//TestLabs/Screenshots" + fileName + ".jpg"));
+
+		} catch (Exception e) {
+			Assert.fail("Failing while taking screenshot" + e.getMessage());
+		}
 	}
 }
